@@ -1,4 +1,4 @@
-# java
+# puppet module corp104_puppet_agent
 [![Build Status](https://travis-ci.org/104corp/puppet-corp104_puppet_agent.svg?branch=master)](https://travis-ci.org/104corp/puppet-corp104_puppet_agent)
 
 
