@@ -1,0 +1,47 @@
+sudo: false
+language: ruby
+cache: bundler
+script: bundle exec rake release_checks
+before_install:
+- gem update bundler
+matrix:
+  fast_finish: true
+  include:
+  - rvm: 2.3.1
+    dist: trusty
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=docker/ubuntu-14.04
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+  - rvm: 2.3.1
+    dist: trusty
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=docker/ubuntu-16.04
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+  - rvm: 2.3.1
+    dist: trusty
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=docker/centos-6
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+  - rvm: 2.3.1
+    dist: trusty
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=docker/centos-7
+    script: bundle exec rake beaker
+    services: docker
+    sudo: required
+  - rvm: 2.1.10
+    bundler_args: "--without system_tests"
+    env: PUPPET_GEM_VERSION="~> 4.0"
+  - rvm: 2.3.1
+    bundler_args: "--without system_tests"
+    env: PUPPET_GEM_VERSION="~> 4.0"
+  - rvm: 2.3.1
+    bundler_args: "--without system_tests"
+    env: PUPPET_GEM_VERSION="~> 5.0"
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: gXiTZzVKWnjRLFZi/nTC6fsuiQSjwYqkUPyIXAveHNUbMEa3J7nUzT7EQTXYenA8Nb88Ewh4bbf1jLZAsF5xGVuYihJ/YdPdONmWgdyoWLwKeusLHuNRKHs6i27CBvWkpp9UzawhRhgoNbybIf6UuzWd480deMzwFEt9/kAK14UoFFZt8zaE9Qn+C+HNcPtp4SYI33qvZMiMvu7fNwbW3XQjkI6EK3Z8370fi+iVI+ah2LO3d0TLCUIM0gBzpsHOAqa1kf2m04Ixl/5AU7RH27xI/duD42INd2GaPh+z3e8+Lp8qxJ8+1hepetYMIupMTyw82HnaSsrAFbenbXTNh0GkB/awvn3BbZSwlczVcHqohatIveIQCY441wyzoZXy5jxz9GxYSrpXf4Tc7FHlh5EUQvkcAoyEbnJARSt1hz2kj5F87vvGL/voG5LsTJb+0ryB1jfQL0icrxSFoekL63FNSVsG155BOu3oLdiBUKhV/MG2lXjLCQHp+G9Hv/6mDwE9P3LBD+kBWCMEAxsSg5qZDuj9bZQXYej1xrLUlOcP7WuQY5WObes8amVaqIom12wIVUxIemMwAtpDhERzWrKD/S2lsCWsMRTnWt+RUpHPc+KfU0b4GCQsc92PXhCRk8fVDZetULQdMm40catkBvIlT4of1tAw8V8JKIX6uT0=

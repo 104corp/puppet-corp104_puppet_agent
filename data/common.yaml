@@ -1,0 +1,11 @@
+corp104_puppet_agent::package_ensure: 'present'
+corp104_puppet_agent::package_name: 'puppet-agent'
+corp104_puppet_agent::http_proxy: ~
+corp104_puppet_agent::http_proxy_timeout: 30
+corp104_puppet_agent::puppet_agent_install_tmp: '/var/tmp/puppet_agent_installer'
+corp104_puppet_agent::puppet_agent_bin: '/opt/puppetlabs/puppet/bin/puppet'
+corp104_puppet_agent::repo_package_ensure: 'installed'
+corp104_puppet_agent::repo_package_name: 'puppetlabs-release-pc1'
+corp104_puppet_agent::service_ensure: 'running'
+corp104_puppet_agent::service_enable: true
+corp104_puppet_agent::service_name: 'puppet'
