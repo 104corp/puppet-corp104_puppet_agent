@@ -53,7 +53,7 @@ class { 'corp104_puppet_agent':
 
 * corp104_puppet_agent::install: Handles the packages.
 * corp104_puppet_agent::config: Handles the config.
-* corp104_puppet_agent::service: Handles the config.
+* corp104_puppet_agent::service: Handles the service.
 
 ## Limitations
 
