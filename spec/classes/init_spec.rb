@@ -20,5 +20,11 @@ describe 'corp104_puppet_agent', :type => 'class' do
     it do
       should compile.with_all_deps
     end
+
+    describe "modify puppet version" do
+      let(:params) { {'puppet_version' => '5.0.1'} }
+      it { is_expected.to contain_package('puppet-agent').with_ensure('5.0.1-1xenial') }
+    end
+
   end
 end
