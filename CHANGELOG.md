@@ -1,7 +1,8 @@
 
-## 2017-08-15 - Release 1.0.1
+## 2017-08-15 - Release 1.0.1 and 1.0.2
 
   - support dynamic puppet version.
+  - fix http_proxy package_repo.
 
 ## 2017-07-31 - Release 0.0.2
 
