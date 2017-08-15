@@ -25,7 +25,7 @@ class corp104_puppet_agent::install inherits corp104_puppet_agent {
 
   if $corp104_puppet_agent::http_proxy {
     exec { 'download-repo':
-      command => "curl -x ${corp104_puppet_agent::http_proxy} --connect-timeout ${corp104_puppet_agent::http_proxy_timeout} -o ${corp104_puppet_agent::puppet_agent_install_tmp} -O ${corp104_puppet_agent::package_repo}",
+      command => "curl -x ${corp104_puppet_agent::http_proxy} --connect-timeout ${corp104_puppet_agent::http_proxy_timeout} -o ${corp104_puppet_agent::puppet_agent_install_tmp} -O ${package_repo}",
       path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
       unless  => "test -f ${package_repo_file}",
     }
