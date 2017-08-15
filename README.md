@@ -32,6 +32,14 @@ All parameters for the ntp module are contained within the main `::corp104_puppe
 include '::corp104_puppet_agent'
 ```
 
+### Install specially puppet version.
+
+```puppet
+class { 'corp104_puppet_agent':
+  puppet_version => '5.0.1',
+}
+```
+
 ### Download repository package to Use a Proxy
 
 ```puppet
