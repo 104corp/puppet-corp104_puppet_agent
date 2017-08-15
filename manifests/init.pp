@@ -43,13 +43,17 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class corp104_puppet_agent (
-  String $package_ensure,
-  String $package_repo,
+  String $puppet_version,
+  String $puppet_repo,
+  String $puppet_repo_file,
+  String $puppet5_repo,
+  String $puppet5_repo_file,
   String $package_provider,
   String $puppet_agent_install_tmp,
   String $package_name,
-  String $repo_package_ensure,
-  String $repo_package_name,
+  String $puppet_repo_package_ensure,
+  String $puppet_repo_package_name,
+  String $puppet5_repo_package_name,
   String $service_name,
   Boolean $service_enable,
   String $service_ensure,
