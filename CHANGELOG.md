@@ -1,3 +1,6 @@
+## 2017-08-24 - Release 1.0.3
+
+  - support puppet version to 6.0.0.
 
 ## 2017-08-15 - Release 1.0.1 and 1.0.2
 
