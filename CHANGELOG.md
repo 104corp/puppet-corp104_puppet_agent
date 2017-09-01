@@ -1,3 +1,7 @@
+## 2017-09-01 - Release 1.1.0
+
+  - support CentOS 5
+
 ## 2017-08-24 - Release 1.0.3
 
   - support puppet version to 6.0.0.

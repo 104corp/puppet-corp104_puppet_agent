@@ -1,0 +1,8 @@
+corp104_puppet_agent::puppet_repo: 'https://yum.puppetlabs.com/puppetlabs-release-pc1-el-5.noarch.rpm'
+corp104_puppet_agent::puppet_repo_file: '/etc/yum.repos.d/puppetlabs-pc1.repo'
+corp104_puppet_agent::puppet_repo_package_name: 'puppetlabs-release-pc1'
+corp104_puppet_agent::puppet_repo_package_rpm: 'puppetlabs-release-pc1-el-5.noarch.rpm'
+corp104_puppet_agent::puppet5_repo: 'https://yum.puppetlabs.com/puppet5/puppet5-release-el-5.noarch.rpm'
+corp104_puppet_agent::puppet5_repo_file: '/etc/yum.repos.d/puppet5.repo'
+corp104_puppet_agent::puppet5_repo_package_name: 'puppet5-release'
+corp104_puppet_agent::puppet5_repo_package_rpm: 'puppet5-release-el-5.noarch.rpm'

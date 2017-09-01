@@ -16,27 +16,43 @@ class corp104_puppet_agent::install inherits corp104_puppet_agent {
     $package_repo = $corp104_puppet_agent::puppet5_repo
     $package_repo_file = $corp104_puppet_agent::puppet5_repo_file
     $repo_package_name = $corp104_puppet_agent::puppet5_repo_package_name
+    $repo_package_rpm = $corp104_puppet_agent::puppet5_repo_package_rpm
   }
   else {
     $package_repo = $corp104_puppet_agent::puppet_repo
     $package_repo_file = $corp104_puppet_agent::puppet_repo_file
     $repo_package_name = $corp104_puppet_agent::puppet_repo_package_name
+    $repo_package_rpm = $corp104_puppet_agent::puppet_repo_package_rpm
   }
 
-  if $corp104_puppet_agent::http_proxy {
+  if $facts['os']['release']['major'] == '5' {
     exec { 'download-repo':
-      command => "curl -x ${corp104_puppet_agent::http_proxy} --connect-timeout ${corp104_puppet_agent::http_proxy_timeout} -o ${corp104_puppet_agent::puppet_agent_install_tmp} -O ${package_repo}",
+      command => 'echo do not anything',
       path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
       unless  => "test -f ${package_repo_file}",
+    }
+    file { $corp104_puppet_agent::puppet_agent_install_tmp:
+      ensure => present,
+      source => "puppet:///modules/${module_name}/${repo_package_rpm}",
     }
   }
   else {
-    exec { 'download-repo':
-      command => "curl -o ${corp104_puppet_agent::puppet_agent_install_tmp} -O ${package_repo}",
-      path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-      unless  => "test -f ${package_repo_file}",
+    if $corp104_puppet_agent::http_proxy {
+      exec { 'download-repo':
+        command => "curl -x ${corp104_puppet_agent::http_proxy} --connect-timeout ${corp104_puppet_agent::http_proxy_timeout} -o ${corp104_puppet_agent::puppet_agent_install_tmp} -O ${package_repo}",
+        path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+        unless  => "test -f ${package_repo_file}",
+      }
+    }
+    else {
+      exec { 'download-repo':
+        command => "curl -o ${corp104_puppet_agent::puppet_agent_install_tmp} -O ${package_repo}",
+        path    => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+        unless  => "test -f ${package_repo_file}",
+      }
     }
   }
+  
 
   case $facts['os']['family'] {
     'Debian': {

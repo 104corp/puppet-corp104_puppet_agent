@@ -1,0 +1,12 @@
+HOSTS:
+  centos-5-x64:
+    platform: el-5-x86_64
+    hypervisor: docker
+    image: gpmidi/centos-5
+    docker_preserve_image: true
+    docker_cmd: '["/sbin/init"]'
+CONFIG:
+  trace_limit: 200
+  masterless: true
+...
+# vim: syntax=yaml

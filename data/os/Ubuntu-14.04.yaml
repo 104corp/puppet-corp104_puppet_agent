@@ -1,6 +1,8 @@
 corp104_puppet_agent::puppet_repo: 'https://apt.puppetlabs.com/puppetlabs-release-pc1-trusty.deb'
 corp104_puppet_agent::puppet_repo_file: '/etc/apt/sources.list.d/puppetlabs-pc1.list'
 corp104_puppet_agent::puppet_repo_package_name: 'puppetlabs-release-pc1'
+corp104_puppet_agent::puppet_repo_package_rpm: ~
 corp104_puppet_agent::puppet5_repo: 'https://apt.puppetlabs.com/puppet5-release-trusty.deb'
 corp104_puppet_agent::puppet5_repo_file: '/etc/apt/sources.list.d/puppet5.list'
 corp104_puppet_agent::puppet5_repo_package_name: 'puppet5-release'
+corp104_puppet_agent::puppet5_repo_package_rpm: ~

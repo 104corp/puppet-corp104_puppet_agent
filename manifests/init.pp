@@ -54,6 +54,8 @@ class corp104_puppet_agent (
   String $puppet_repo_package_ensure,
   String $puppet_repo_package_name,
   String $puppet5_repo_package_name,
+  Optional[String] $puppet_repo_package_rpm,
+  Optional[String] $puppet5_repo_package_rpm,
   String $service_name,
   Boolean $service_enable,
   String $service_ensure,
