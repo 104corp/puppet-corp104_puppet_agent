@@ -52,7 +52,6 @@ class corp104_puppet_agent::install inherits corp104_puppet_agent {
       }
     }
   }
-  
 
   case $facts['os']['family'] {
     'Debian': {
