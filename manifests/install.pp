@@ -85,8 +85,9 @@ class corp104_puppet_agent::install inherits corp104_puppet_agent {
   }
 
   package { 'puppet-agent':
-    ensure => $package_ensure,
-    name   => $corp104_puppet_agent::package_name,
-    notify => Service['puppet-agent'],
+    ensure  => $package_ensure,
+    name    => $corp104_puppet_agent::package_name,
+    notify  => Service['puppet-agent'],
+    require => Package["$repo_package_name"],
   }
 }
