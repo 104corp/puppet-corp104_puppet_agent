@@ -1,6 +1,7 @@
-## 2018-05-31 - Release 1.1.1
+## 2018-05-31 - Release 1.1.1, 1.1.2
 
   - fix package dependency repos.
+  - fix metadata summary.
 
 ## 2017-09-01 - Release 1.1.0
 
