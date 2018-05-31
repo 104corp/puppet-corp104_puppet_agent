@@ -1,3 +1,7 @@
+## 2018-05-31 - Release 1.1.1
+
+  - fix package dependency repos.
+
 ## 2017-09-01 - Release 1.1.0
 
   - support CentOS 5
